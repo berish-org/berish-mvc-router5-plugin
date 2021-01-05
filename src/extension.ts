@@ -25,7 +25,7 @@ declare module '@berish/mvc-core/build/component/controller' {
 }
 
 declare module '@berish/mvc-core/build/provider/mvcController' {
-  export default interface MvcController {
+  export interface MvcController {
     navigate<TControllerClass extends ControllerClass>(
       controllerCls: TControllerClass,
       params?: ControllerClassProps<TControllerClass>,
