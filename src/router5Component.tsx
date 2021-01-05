@@ -7,7 +7,7 @@ import { router5Context } from './router5Context';
 import { parsePath } from './util';
 
 export interface Router5ComponentProps {
-  controllerClass: ControllerClass<{ error: any }>;
+  notFoundControllerClass?: ControllerClass<{ error: any }>;
 }
 
 export function Router5Component(props: Router5ComponentProps) {
@@ -26,7 +26,8 @@ export function Router5Component(props: Router5ComponentProps) {
 
           return <RenderComponent controllerClass={controllerClass} {...route.params} />;
         } catch (error) {
-          if (props.controllerClass) return <RenderComponent controllerClass={props.controllerClass} error={error} />;
+          if (props.notFoundControllerClass)
+            return <RenderComponent controllerClass={props.notFoundControllerClass} error={error} />;
           return <>Not found</>;
         }
       }}
