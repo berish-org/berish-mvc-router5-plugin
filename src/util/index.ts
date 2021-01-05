@@ -1,2 +1,2 @@
-export * from "./buildPath";
-export * from "./parsePath";
+export * from './buildPath';
+export * from './parsePath';
