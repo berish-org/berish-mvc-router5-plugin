@@ -11,21 +11,14 @@ export interface Router5Plugin {
 }
 
 export const plugin: Router5Plugin = (params) => ({ mvcController, mvcRenderConfig }) => {
-  const {
-    getRouter,
-    mapPathItemsToController,
-    convertPathItemsToPath,
-    convertPathItemsToName,
-    homePageItem,
-  } = getDefaultParams(params);
-  const homePageItemLowerCase = homePageItem.toString().toLocaleLowerCase();
+  const { getRouter, mapPathItemsToController, convertPathItemsToPath, convertPathItemsToName } = getDefaultParams(
+    params,
+  );
   const router = getRouter();
   const mapNameToController: [string, ControllerClass][] = [];
 
   for (const [pathItems, controllerClass] of mapPathItemsToController) {
-    const path = convertPathItemsToPath(
-      pathItems.filter((m) => m.toString().toLocaleLowerCase() !== homePageItemLowerCase),
-    );
+    const path = convertPathItemsToPath(pathItems);
     const name = convertPathItemsToName(pathItems);
 
     mapNameToController.push([name, controllerClass]);

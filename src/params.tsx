@@ -13,7 +13,6 @@ export interface PluginParams {
   convertPathItemsToPath?: (items: (string | number)[]) => string;
   convertPathItemsToName?: (items: (string | number)[]) => string;
   renderComponent?: (controllerClass: ControllerClass, state: State) => React.ReactNode;
-  homePageItem?: string | number;
 }
 
 const defaultParams: PluginParams = {
@@ -23,7 +22,6 @@ const defaultParams: PluginParams = {
   convertPathItemsToName: (items) => items.join('_').toLocaleLowerCase() || 'index',
   convertPathItemsToPath: (items) => '/' + items.join('/').toLocaleLowerCase(),
   renderComponent: (controllerClass, state) => <RenderComponent controllerClass={controllerClass} {...state.params} />,
-  homePageItem: 'home',
 };
 
 export function getDefaultParams(params?: PluginParams) {
