@@ -3,7 +3,7 @@ import { RouterProvider } from 'react-router5';
 import { ControllerClass, LifecyclePlugin } from '@berish/mvc-core';
 
 import { router5Context } from './router5Context';
-import { isActiveRoute, navigate } from './methods';
+import { isActiveRoute, navigate, replace } from './methods';
 import { PluginParams, getDefaultParams } from './params';
 
 export interface Router5Plugin {
@@ -33,6 +33,7 @@ export const plugin: Router5Plugin = (params) => ({ mvcController, mvcRenderConf
     controller: {
       upgradeInstance: (instance) => {
         instance.navigate = (controllerClass, params) => navigate(router, controllerClass, params);
+        instance.replace = (controllerClass, params) => replace(router, controllerClass, params);
         instance.isActiveRoute = (controllerClass) => isActiveRoute(router, controllerClass);
       },
     },

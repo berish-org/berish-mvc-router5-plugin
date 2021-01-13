@@ -8,6 +8,10 @@ declare module '@berish/mvc-core/build/component/controller' {
       controllerClass: TControllerClass,
       params?: ControllerClassProps<TControllerClass>,
     ): void;
+    replace<TControllerClass extends ControllerClass>(
+      controllerClass: TControllerClass,
+      params?: ControllerClassProps<TControllerClass>,
+    ): void;
     isActiveRoute<TControllerClass extends ControllerClass>(controllerClass: TControllerClass): boolean;
   }
 
@@ -27,6 +31,10 @@ declare module '@berish/mvc-core/build/component/controller' {
 declare module '@berish/mvc-core/build/provider/mvcController' {
   export interface MvcController {
     navigate<TControllerClass extends ControllerClass>(
+      controllerCls: TControllerClass,
+      params?: ControllerClassProps<TControllerClass>,
+    ): void;
+    replace<TControllerClass extends ControllerClass>(
       controllerCls: TControllerClass,
       params?: ControllerClassProps<TControllerClass>,
     ): void;
