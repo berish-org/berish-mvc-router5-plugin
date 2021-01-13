@@ -1,6 +1,6 @@
 {
   "name": "@berish/mvc-router5-plugin",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Router5 plugin for @berish/mvc-core",
   "main": "build/index.js",
   "typings": "build/index.d.ts",
