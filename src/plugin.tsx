@@ -43,7 +43,9 @@ export const plugin: Router5Plugin = (params) => ({ mvcController, mvcRenderConf
         mvcRenderConfig.renderApp = (props) => {
           return (
             <RouterProvider router={router}>
-              <router5Context.Provider value={{ mapNameToController }}>{prevRenderApp(props)}</router5Context.Provider>
+              <router5Context.Provider value={{ mapNameToController, router }}>
+                {prevRenderApp(props)}
+              </router5Context.Provider>
             </RouterProvider>
           );
         };
