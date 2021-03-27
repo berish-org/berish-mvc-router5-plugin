@@ -16,15 +16,25 @@ declare module '@berish/mvc-core/build/component/controller' {
   }
 
   export interface ControllerClass {
-    routePath: string;
+    /** Route name, like book_home */
     routeName: string;
-    routeFullPath: string;
+
+    /** Route path, like /book/:id */
+    routeTemplatePath: string;
+
+    /** Route full path like http://localhost:80/book/:id */
+    routeTemplateFullPath: string;
   }
 
   namespace Controller {
-    let routePath: string;
+    /** Route name, like book_home */
     let routeName: string;
-    let routeFullPath: string;
+
+    /** Route template path, like /book/:id */
+    let routeTemplatePath: string;
+
+    /** Route full path like http://localhost:80/book/:id */
+    let routeTemplateFullPath: string;
   }
 }
 

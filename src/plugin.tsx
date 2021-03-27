@@ -24,9 +24,9 @@ export const plugin: Router5Plugin = (params) => ({ mvcController, mvcRenderConf
     mapNameToController.push([name, controllerClass]);
 
     controllerClass.routeName = name;
-    controllerClass.routePath = path;
-    controllerClass.routeFullPath =
-      controllerClass.routePath && `${window.location.origin}${controllerClass.routePath}`;
+    controllerClass.routeTemplatePath = path;
+    controllerClass.routeTemplateFullPath =
+      controllerClass.routeTemplatePath && `${window.location.origin}${controllerClass.routeTemplatePath}`;
   }
 
   return {

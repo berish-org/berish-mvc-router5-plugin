@@ -2,7 +2,7 @@ import { Router } from 'router5';
 import { isExtends } from '@berish/class';
 import { Controller, ControllerClass, ControllerClassProps } from '@berish/mvc-core';
 
-import { buildPath } from '../util';
+import { buildQueryParameters } from '../util';
 
 export function replace<TControllerClass extends ControllerClass>(
   router: Router,
@@ -11,8 +11,9 @@ export function replace<TControllerClass extends ControllerClass>(
 ) {
   if (isExtends(controllerClass, Controller)) {
     if (controllerClass.routeName) {
-      const paramsPath = params && buildPath(params);
-      router.navigate(controllerClass.routeName, paramsPath, { replace: true });
+      const queryParams = params && buildQueryParameters(params);
+
+      router.navigate(controllerClass.routeName, queryParams, { replace: true });
     } else console.warn('Route for this controller not found');
   }
 }

@@ -4,7 +4,7 @@ import { Route } from 'react-router5';
 import { ControllerClass, RenderComponent } from '@berish/mvc-core';
 
 import { router5Context } from './router5Context';
-import { parsePath } from './util';
+import { parseQueryParameters } from './util';
 
 export interface Router5ComponentProps {
   notFoundControllerClass?: ControllerClass<{ error: any }>;
@@ -18,11 +18,11 @@ export function Router5Component(props: Router5ComponentProps) {
     <Route>
       {({ route }) => {
         try {
-          if (!route || !route.name || routerNames.indexOf(route.name) === -1 || route.name === constants.UNKNOWN_ROUTE)
+          if (!route || !route.name || route.name === constants.UNKNOWN_ROUTE || routerNames.indexOf(route.name) === -1)
             throw new Error('not found');
 
           const controllerClass = mapNameToController.filter((m) => m[0] === route.name)[0][1];
-          route.params = parsePath(route.params);
+          route.params = parseQueryParameters(route.params);
 
           return <RenderComponent controllerClass={controllerClass} {...route.params} />;
         } catch (error) {

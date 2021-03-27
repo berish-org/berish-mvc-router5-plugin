@@ -1,4 +1,4 @@
-export function buildPath(params: { [key: string]: any }) {
+export function buildQueryParameters(params: { [key: string]: any }) {
   const keyBuild = (key: string, value: any): { [key: string]: any } => {
     if (!value && typeof value !== 'boolean' && typeof value !== 'number') return { [key]: null };
     if (typeof value === 'number' || typeof value === 'string' || typeof value === 'boolean')

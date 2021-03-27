@@ -1,2 +1,2 @@
-export * from './buildPath';
-export * from './parsePath';
+export * from './buildQueryParameters';
+export * from './parseQueryParameters';

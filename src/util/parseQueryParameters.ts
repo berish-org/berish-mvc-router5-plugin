@@ -2,7 +2,7 @@ import LINQ from '@berish/linq';
 
 const regExpForDigits = /^([\d]+)/gm;
 
-export function parsePath(params: { [key: string]: string }) {
+export function parseQueryParameters(params: { [key: string]: string }) {
   const parseValue = (value: string): any => {
     if (!value) return null;
     if (value === '[]') return [];
