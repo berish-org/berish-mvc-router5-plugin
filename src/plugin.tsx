@@ -51,6 +51,10 @@ export const plugin: Router5Plugin = (params) => ({ mvcController, mvcRenderConf
           );
         };
       },
+      upgrade: () => {
+        mvcController.navigate = (controllerClass, params) => navigate(router, controllerClass, params);
+        mvcController.replace = (controllerClass, params) => replace(router, controllerClass, params);
+      },
     },
   };
 };
