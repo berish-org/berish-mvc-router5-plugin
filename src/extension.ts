@@ -1,16 +1,16 @@
 import '@berish/mvc-core/build/component/controller';
 import '@berish/mvc-core/build/provider/mvcController';
-import { ControllerClass, ControllerClassProps } from '@berish/mvc-core/build/component/controller';
+import { ControllerClass, PropsFromControllerClass } from '@berish/mvc-core/build/component/controller';
 
 declare module '@berish/mvc-core/build/component/controller' {
   export interface Controller {
     navigate<TControllerClass extends ControllerClass>(
       controllerClass: TControllerClass,
-      params?: ControllerClassProps<TControllerClass>,
+      params?: PropsFromControllerClass<TControllerClass>,
     ): void;
     replace<TControllerClass extends ControllerClass>(
       controllerClass: TControllerClass,
-      params?: ControllerClassProps<TControllerClass>,
+      params?: PropsFromControllerClass<TControllerClass>,
     ): void;
     isActiveRoute<TControllerClass extends ControllerClass>(controllerClass: TControllerClass): boolean;
   }
@@ -42,11 +42,11 @@ declare module '@berish/mvc-core/build/provider/mvcController' {
   export interface MvcController {
     navigate<TControllerClass extends ControllerClass>(
       controllerCls: TControllerClass,
-      params?: ControllerClassProps<TControllerClass>,
+      params?: PropsFromControllerClass<TControllerClass>,
     ): void;
     replace<TControllerClass extends ControllerClass>(
       controllerCls: TControllerClass,
-      params?: ControllerClassProps<TControllerClass>,
+      params?: PropsFromControllerClass<TControllerClass>,
     ): void;
   }
 }

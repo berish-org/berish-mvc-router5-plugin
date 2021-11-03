@@ -1,13 +1,13 @@
 import { Router } from 'router5';
 import { isExtends } from '@berish/class';
-import { Controller, ControllerClass, ControllerClassProps } from '@berish/mvc-core';
+import { Controller, ControllerClass, PropsFromControllerClass } from '@berish/mvc-core';
 
 import { buildQueryParameters } from '../util';
 
 export function navigate<TControllerClass extends ControllerClass>(
   router: Router,
   controllerClass: TControllerClass,
-  params?: ControllerClassProps<TControllerClass>,
+  params?: PropsFromControllerClass<TControllerClass>,
 ) {
   if (isExtends(controllerClass, Controller)) {
     if (controllerClass.routeName) {
